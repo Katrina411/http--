@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>视频列表</title>
+    <!-- 引入 Video.js 样式 -->
+    <link href="https://vjs.zencdn.net/8.3.0/video-js.css" rel="stylesheet" />
+    <!-- 引入 Video.js 脚本 -->
+    <script src="https://vjs.zencdn.net/8.3.0/video.min.js"></script>
+</head>
+<body>
+    <h1>我的视频列表</h1>
+    <ul>
+        {% for video in videos %}
+            <li>
+                <a href="{% url 'video_play' video.id %}">
+                    {{ video.title }}
+                </a>
+            </li>
+        {% empty %}
+            <li>暂无视频，请先上传</li>
+        {% endfor %}
+    </ul>
+</body>
+</html>

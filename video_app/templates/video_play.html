@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ video.title }} - 播放页</title>
+    <!-- 引入 Video.js 样式 -->
+    <link href="https://vjs.zencdn.net/8.3.0/video-js.css" rel="stylesheet" />
+    <!-- 引入 Video.js 脚本 -->
+    <script src="https://vjs.zencdn.net/8.3.0/video.min.js"></script>
+</head>
+<body>
+    <h1>{{ video.title }}</h1>
+    <video
+        id="my-video"
+        class="video-js"
+        controls
+        width="800"
+        height="450"
+        preload="auto"
+    >
+        <source src="{{ video.file.url }}" type="video/mp4">
+        您的浏览器不支持视频播放，请升级浏览器。
+    </video>
+    <p><a href="{% url 'video_list' %}">← 返回视频列表</a></p>
+</body>
+</html>
